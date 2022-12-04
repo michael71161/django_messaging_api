@@ -4,9 +4,9 @@
 
 
 ****************************************************
-##### Complete Messageing API programm using the following stack: Python Django,Django REST framework, simpleJWT, SQLite3.
+#### Complete Messageing API programm using the following stack: Python Django,Django REST framework, simpleJWT, SQLite3.
 **************************************************
-##### ***Live Server URL:          *** 
+#### ***Live Server URL:          *** 
 
 
 ************************************************
@@ -22,7 +22,7 @@
 
 **************************************************
 ### How To Use API 
-- ##### All the using instructions and routes will be available at the postman file in this Repository, file name is: 
+- #### All the using instructions and routes will be available at the postman file in this Repository, file name is: 
 
 **************************************************
 ### Download And Run On Local Host:
