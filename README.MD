@@ -26,4 +26,10 @@
 
 **************************************************
 ### Download And Run On Local Host:
-- 
+- Clone project: git clone https://github.com/michael71161/django_messaging_api.git
+- cd message_sys_back
+- pip install virtualenv
+- virtualenv myenv
+- myenv\scripts\activate
+- pip install -r requirements.txt
+- python manage.py runserver
