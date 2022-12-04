@@ -1,0 +1,1303 @@
+{
+	"info": {
+		"_postman_id": "5c63cd9e-a0ca-4199-974d-bc57ca7d7752",
+		"name": "message_api",
+		"description": "_**Messaging API with user registration and authentication**_\n\n_**How to use:**_\n\n_go to: GET - URL/api/testget to see all the messages - no authorization for this route._\n\n_GET- URL/api - list of all registered user_\n\n1. **Register -** Go to the route: POST - URL/api/register - perform registration to the server by providing - username, password, email - dont forget your creds !\n2. **Login -** after you performed registration go to: POST - URL/api/signintoken/ - perform login with your creds . you will get as a response access token and refresh token. _copy the access token without the quotation marks - you will need to provide your token to authorization and accessing restricted routes !!_\n3. **Get All Messages For Logged In User -** after you performed registration go to : URL/api/getmsgstouser/ provide access token and you will see all messages sent to logged user\n4. **Get Unread messages For Logged in Use**r**\\-** after you performed registration go to : URL/api/getunrduser /provide access token and you will see unread messages for logged in user\n5. **Write Message -** after you performed registration go to : url/api/write/ provide access token than on reques body go to raw data and read your message using following keys: recevier , msg_body, msg_subject , your message will be sent\n6. **Delete message-** after you performed registration go to URL/api/delmsguser/id provide access token and id and the message will be deleted\n7. **Read message-** after you performed registration go to URL/api/readmessage/id provide access token and id and the message will be marked as read\n8. **Logout-** after you performed registration go to URL/api/logout provide your access token and the server will log you out. you will need to perform login again to get aceess (new token)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24738859"
+	},
+	"item": [
+		{
+			"name": "GET api/testget/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMTY0MTcyLCJpYXQiOjE2NzAxNjMyNzIsImp0aSI6IjhmNTg3ZGQ1YzcxNjRjZGRhZmVlMjY5NjUxMTMyMTRhIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJaYXp6aSIsImVtYWlsIjoiekB6emkuY29tIiwiaXNBZG1pbiI6ZmFsc2V9.0Hod4Z4ebn0CQiANWC9lFRkQ_XxCUJ4w-P3zq4KmyhM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMDk2NjU5LCJpYXQiOjE2NzAwOTU3NTksImp0aSI6Ijg0Y2ZjYWFlYjNjODRjYmU4NjQ2NTJlNGRjZTY4ZjkxIiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJCYXp6YXppIiwiZW1haWwiOiJiQHp6YXppLmNvbSIsImlzQWRtaW4iOmZhbHNlfQ.KSQ9Zz0huJt-Egr2k-vOkn8iQqUKDvyNZl1NTNIHZeQ",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "Zazzi",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "12345678o",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL_LOCAL}}/api/testget",
+					"host": [
+						"{{URL_LOCAL}}"
+					],
+					"path": [
+						"api",
+						"testget"
+					]
+				},
+				"description": "Testing get all messages - view all messages -authorization needed!!!"
+			},
+			"response": [
+				{
+					"name": "GET api/testget/",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Authorization",
+									"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMDk2NjU5LCJpYXQiOjE2NzAwOTU3NTksImp0aSI6Ijg0Y2ZjYWFlYjNjODRjYmU4NjQ2NTJlNGRjZTY4ZjkxIiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJCYXp6YXppIiwiZW1haWwiOiJiQHp6YXppLmNvbSIsImlzQWRtaW4iOmZhbHNlfQ.KSQ9Zz0huJt-Egr2k-vOkn8iQqUKDvyNZl1NTNIHZeQ",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "Zazzi",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "12345678o",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 21:44:21 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "521"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"michael\",\n        \"email\": \"mich@el.com\"\n    },\n    {\n        \"id\": 2,\n        \"username\": \"Zazzi\",\n        \"email\": \"z@zzi.com\"\n    },\n    {\n        \"id\": 3,\n        \"username\": \"misterDev\",\n        \"email\": \"mister@dev.com\"\n    },\n    {\n        \"id\": 4,\n        \"username\": \"iyeNeedar\",\n        \"email\": \"need@r.com\"\n    },\n    {\n        \"id\": 5,\n        \"username\": \"Bazzazi\",\n        \"email\": \"b@zzazi.com\"\n    },\n    {\n        \"id\": 6,\n        \"username\": \"postman\",\n        \"email\": \"postm@n.com\"\n    },\n    {\n        \"id\": 7,\n        \"username\": \"check12\",\n        \"email\": \"ch@ck.com\"\n    },\n    {\n        \"id\": 8,\n        \"username\": \"djangoman\",\n        \"email\": \"dj@ngo.com\"\n    },\n    {\n        \"id\": 9,\n        \"username\": \"newOne\",\n        \"email\": \"n@wone.com\"\n    },\n    {\n        \"id\": 10,\n        \"username\": \"teamLeader\",\n        \"email\": \"te@m.com\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "POST api/register/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "newOne",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "n@wone.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678o",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/api/register/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"register",
+						""
+					]
+				},
+				"description": "Registration to the user while providing:\n\nusername, password, Email"
+			},
+			"response": [
+				{
+					"name": "POST api/register/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "newman",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "n@wone.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678o",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 21:45:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "19"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "\"Registration done\""
+				}
+			]
+		},
+		{
+			"name": "POST api/signintoken/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Zazzi",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678o",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL_LOCAL}}/api/signintoken/",
+					"host": [
+						"{{URL_LOCAL}}"
+					],
+					"path": [
+						"api",
+						"signintoken",
+						""
+					]
+				},
+				"description": "After we have registered user we can login with its creds ,\n\nwe will get the users access token as part of the response . we will use it for\n\nauthenticate the user and access to restricted routes which requiring authentication token"
+			},
+			"response": [
+				{
+					"name": "POST api/signintoken/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "Zazzi",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678o",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/signintoken/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"signintoken",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 21:45:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "630"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY3Nzk2NjM0OCwiaWF0IjoxNjcwMTkwMzQ4LCJqdGkiOiJlMDRhMmI3MDdkODc0MTQ2YTNiZmUwZTdmZWUxYTYyZCIsInVzZXJfaWQiOjIsInVzZXJuYW1lIjoiWmF6emkiLCJlbWFpbCI6InpAenppLmNvbSIsImlzQWRtaW4iOmZhbHNlfQ.QGHIPVS_66S3oehWYGyF3jfwyTM08LcSjV1o3qmdwO8\",\n    \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMTkxMjQ4LCJpYXQiOjE2NzAxOTAzNDgsImp0aSI6IjI4Y2ZkN2FlZmY0MjQ3NGI4ZWQzMmZkZWJiMTA0ZWMzIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJaYXp6aSIsImVtYWlsIjoiekB6emkuY29tIiwiaXNBZG1pbiI6ZmFsc2V9.ZJd3W0fFNe5hIHUXNERTheiuPMFwOfUiJX6Xwk51CME\"\n}"
+				}
+			]
+		},
+		{
+			"name": "POST api/write/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMTcwNjYzLCJpYXQiOjE2NzAxNjk3NjMsImp0aSI6ImJiMzc3YWUxZjA4MjRjMjZhMTcwMDE2NDMwNTcyYjhmIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJaYXp6aSIsImVtYWlsIjoiekB6emkuY29tIiwiaXNBZG1pbiI6ZmFsc2V9.g6OzP9Jm3vSwB5liLYI4k2FJi7ahfdFoIrJg0u9mp8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Authorization",
+							"value": " Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMDg1NjU0LCJpYXQiOjE2NzAwODQ3NTQsImp0aSI6ImUyNjE3MzgzMGRiYjQ2NWE4M2I4NTcwMmVhMDAyYWQ2IiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJaYXp6aSIsImVtYWlsIjoiekB6emkuY29tIiwiaXNBZG1pbiI6ZmFsc2V9.qOuveMC0UFtR2cFjJwv2k1oVuFG6rFfCn-qWfnRjH2M",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "receiver",
+							"value": "teamLeader",
+							"type": "text"
+						},
+						{
+							"key": "msg_body",
+							"value": "Michael is very motivated and commited person that searching for his first oppurtunity.",
+							"type": "text"
+						},
+						{
+							"key": "msg_subject",
+							"value": "Dear Team Leader",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL_LOCAL}}/api/write/",
+					"host": [
+						"{{URL_LOCAL}}"
+					],
+					"path": [
+						"api",
+						"write",
+						""
+					]
+				},
+				"description": "Write message with Authorization - logged in user is the sender !! - token required"
+			},
+			"response": [
+				{
+					"name": "POST api/write/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Authorization",
+									"value": " Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMDg1NjU0LCJpYXQiOjE2NzAwODQ3NTQsImp0aSI6ImUyNjE3MzgzMGRiYjQ2NWE4M2I4NTcwMmVhMDAyYWQ2IiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJaYXp6aSIsImVtYWlsIjoiekB6emkuY29tIiwiaXNBZG1pbiI6ZmFsc2V9.qOuveMC0UFtR2cFjJwv2k1oVuFG6rFfCn-qWfnRjH2M",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "receiver",
+									"value": "michael",
+									"type": "text"
+								},
+								{
+									"key": "msg_body",
+									"value": "hello",
+									"type": "text"
+								},
+								{
+									"key": "msg_subject",
+									"value": "hello",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/write/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"write",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 21:46:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "143"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": 20,\n    \"receiver\": \"michael\",\n    \"msg_body\": \"hello\",\n    \"msg_subject\": \"hello\",\n    \"creation_date\": \"2022-12-04T21:46:54.221404Z\",\n    \"is_read\": false,\n    \"user\": 2\n}"
+				}
+			]
+		},
+		{
+			"name": "GET api/getmsgstouser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMTcwNjYzLCJpYXQiOjE2NzAxNjk3NjMsImp0aSI6ImJiMzc3YWUxZjA4MjRjMjZhMTcwMDE2NDMwNTcyYjhmIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJaYXp6aSIsImVtYWlsIjoiekB6emkuY29tIiwiaXNBZG1pbiI6ZmFsc2V9.g6OzP9Jm3vSwB5liLYI4k2FJi7ahfdFoIrJg0u9mp8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_LOCAL}}/api/getmsgstouser",
+					"host": [
+						"{{URL_LOCAL}}"
+					],
+					"path": [
+						"api",
+						"getmsgstouser"
+					]
+				},
+				"description": "Get all messages for a specific user - for logged in user!!"
+			},
+			"response": [
+				{
+					"name": "GET api/getmsgstouser",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/getmsgstouser",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getmsgstouser"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 21:48:36 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "350"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": 2,\n        \"receiver\": \"Zazzi\",\n        \"msg_body\": \"whats up zazzi, you are so zazzi bro\",\n        \"msg_subject\": \"hi bro\",\n        \"creation_date\": \"2022-12-02T21:44:07.414875Z\",\n        \"is_read\": false,\n        \"user\": 1\n    },\n    {\n        \"_id\": 12,\n        \"receiver\": \"Zazzi\",\n        \"msg_body\": \"Hi all i am new here whats up \",\n        \"msg_subject\": \"hello everybody\",\n        \"creation_date\": \"2022-12-04T13:48:49.553947Z\",\n        \"is_read\": true,\n        \"user\": 9\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "PUT api/readmessage/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMTcwMTg1LCJpYXQiOjE2NzAxNjkyODUsImp0aSI6Ijc4YTAyM2NjODY3NzQwZDdhNmNiOWVkZjY5ODlhNzFkIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtaWNoYWVsIiwiZW1haWwiOiJtaWNoQGVsLmNvbSIsImlzQWRtaW4iOnRydWV9.bcPcDLZTgHCpQgcb13HTDIYd_vhltrbm6QfZvc8DVOw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{URL_LOCAL}}/api/readmessage/7/",
+					"host": [
+						"{{URL_LOCAL}}"
+					],
+					"path": [
+						"api",
+						"readmessage",
+						"7",
+						""
+					]
+				},
+				"description": "Mark message as read through PUT request with message id - login required"
+			},
+			"response": [
+				{
+					"name": "PUT api/readmessage/",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/readmessage/12/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"readmessage",
+								"12",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 21:48:10 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "PUT, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "175"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": 12,\n    \"receiver\": \"Zazzi\",\n    \"msg_body\": \"Hi all i am new here whats up \",\n    \"msg_subject\": \"hello everybody\",\n    \"creation_date\": \"2022-12-04T13:48:49.553947Z\",\n    \"is_read\": true,\n    \"user\": 9\n}"
+				}
+			]
+		},
+		{
+			"name": "GET api/getunrduser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMTcwMTg1LCJpYXQiOjE2NzAxNjkyODUsImp0aSI6Ijc4YTAyM2NjODY3NzQwZDdhNmNiOWVkZjY5ODlhNzFkIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtaWNoYWVsIiwiZW1haWwiOiJtaWNoQGVsLmNvbSIsImlzQWRtaW4iOnRydWV9.bcPcDLZTgHCpQgcb13HTDIYd_vhltrbm6QfZvc8DVOw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_LOCAL}}/api/getunrduser",
+					"host": [
+						"{{URL_LOCAL}}"
+					],
+					"path": [
+						"api",
+						"getunrduser"
+					]
+				},
+				"description": "GET api/getunrduser\n\nGet all unread messages of the logged in user - authorization required"
+			},
+			"response": [
+				{
+					"name": "GET api/getunrduser",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/getunrduser",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getunrduser"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 21:48:26 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "174"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": 2,\n        \"receiver\": \"Zazzi\",\n        \"msg_body\": \"whats up zazzi, you are so zazzi bro\",\n        \"msg_subject\": \"hi bro\",\n        \"creation_date\": \"2022-12-02T21:44:07.414875Z\",\n        \"is_read\": false,\n        \"user\": 1\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "DELETE api/delmsguser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMTcwMTg1LCJpYXQiOjE2NzAxNjkyODUsImp0aSI6Ijc4YTAyM2NjODY3NzQwZDdhNmNiOWVkZjY5ODlhNzFkIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtaWNoYWVsIiwiZW1haWwiOiJtaWNoQGVsLmNvbSIsImlzQWRtaW4iOnRydWV9.bcPcDLZTgHCpQgcb13HTDIYd_vhltrbm6QfZvc8DVOw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL_LOCAL}}/api/delmsguser/7/",
+					"host": [
+						"{{URL_LOCAL}}"
+					],
+					"path": [
+						"api",
+						"delmsguser",
+						"7",
+						""
+					]
+				},
+				"description": "DELETE message by message id - authorization needed"
+			},
+			"response": [
+				{
+					"name": "DELETE api/delmsguser",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/delmsguser/2/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"delmsguser",
+								"2",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 21:49:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "17"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "\"Message Deleted\""
+				}
+			]
+		},
+		{
+			"name": "GET api/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_LOCAL}}/api/",
+					"host": [
+						"{{URL_LOCAL}}"
+					],
+					"path": [
+						"api",
+						""
+					]
+				},
+				"description": "List of all registered user so you will know tho who send your message"
+			},
+			"response": [
+				{
+					"name": "GET api/",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 21:49:29 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "572"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"michael\",\n        \"email\": \"mich@el.com\"\n    },\n    {\n        \"id\": 2,\n        \"username\": \"Zazzi\",\n        \"email\": \"z@zzi.com\"\n    },\n    {\n        \"id\": 3,\n        \"username\": \"misterDev\",\n        \"email\": \"mister@dev.com\"\n    },\n    {\n        \"id\": 4,\n        \"username\": \"iyeNeedar\",\n        \"email\": \"need@r.com\"\n    },\n    {\n        \"id\": 5,\n        \"username\": \"Bazzazi\",\n        \"email\": \"b@zzazi.com\"\n    },\n    {\n        \"id\": 6,\n        \"username\": \"postman\",\n        \"email\": \"postm@n.com\"\n    },\n    {\n        \"id\": 7,\n        \"username\": \"check12\",\n        \"email\": \"ch@ck.com\"\n    },\n    {\n        \"id\": 8,\n        \"username\": \"djangoman\",\n        \"email\": \"dj@ngo.com\"\n    },\n    {\n        \"id\": 9,\n        \"username\": \"newOne\",\n        \"email\": \"n@wone.com\"\n    },\n    {\n        \"id\": 10,\n        \"username\": \"teamLeader\",\n        \"email\": \"te@m.com\"\n    },\n    {\n        \"id\": 11,\n        \"username\": \"newman\",\n        \"email\": \"n@wone.com\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "GET api/logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMTcwNjYzLCJpYXQiOjE2NzAxNjk3NjMsImp0aSI6ImJiMzc3YWUxZjA4MjRjMjZhMTcwMDE2NDMwNTcyYjhmIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJaYXp6aSIsImVtYWlsIjoiekB6emkuY29tIiwiaXNBZG1pbiI6ZmFsc2V9.g6OzP9Jm3vSwB5liLYI4k2FJi7ahfdFoIrJg0u9mp8A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_LOCAL}}/api/logout",
+					"host": [
+						"{{URL_LOCAL}}"
+					],
+					"path": [
+						"api",
+						"logout"
+					]
+				},
+				"description": "Logout to logged in user"
+			},
+			"response": [
+				{
+					"name": "GET api/logout",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 21:49:43 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "17"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "\"user logged out\""
+				}
+			]
+		},
+		{
+			"name": "PROD_GET api/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://michaelmsgbck.onrender.com/api",
+					"protocol": "https",
+					"host": [
+						"michaelmsgbck",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api"
+					]
+				},
+				"description": "\\*PROD\\*\n\nList of all registered user so you will know to who send your message\n\nEndFragment"
+			},
+			"response": [
+				{
+					"name": "all users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://michaelmsgbck.onrender.com/api/",
+							"protocol": "https",
+							"host": [
+								"michaelmsgbck",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 20:14:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "774735eb0e5ae3db-TLV"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cross-origin-opener-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"michael\",\n        \"email\": \"mich@el.com\"\n    },\n    {\n        \"id\": 2,\n        \"username\": \"Zazzi\",\n        \"email\": \"z@zzi.com\"\n    },\n    {\n        \"id\": 3,\n        \"username\": \"misterDev\",\n        \"email\": \"mister@dev.com\"\n    },\n    {\n        \"id\": 4,\n        \"username\": \"iyeNeedar\",\n        \"email\": \"need@r.com\"\n    },\n    {\n        \"id\": 5,\n        \"username\": \"Bazzazi\",\n        \"email\": \"b@zzazi.com\"\n    },\n    {\n        \"id\": 6,\n        \"username\": \"postman\",\n        \"email\": \"postm@n.com\"\n    },\n    {\n        \"id\": 7,\n        \"username\": \"check12\",\n        \"email\": \"ch@ck.com\"\n    },\n    {\n        \"id\": 8,\n        \"username\": \"djangoman\",\n        \"email\": \"dj@ngo.com\"\n    },\n    {\n        \"id\": 9,\n        \"username\": \"newOne\",\n        \"email\": \"n@wone.com\"\n    },\n    {\n        \"id\": 10,\n        \"username\": \"teamLeader\",\n        \"email\": \"te@m.com\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://127.0.0.1:8000\n",
+			"type": "string"
+		}
+	]
+}

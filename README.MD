@@ -6,7 +6,7 @@
 ****************************************************
 #### Complete Messageing API programm using the following stack: Python Django,Django REST framework, simpleJWT, SQLite3.
 **************************************************
-#### ***Live Server URL:          *** 
+#### ***Live Server URL:https://michaelmsgbck.onrender.com*** 
 
 
 ************************************************
@@ -22,7 +22,8 @@
 
 **************************************************
 ### How To Use API 
-- #### All the using instructions and routes will be available at the postman file in this Repository, file name is: 
+- #### All the using instructions and routes will be available at the postman requests file in this Repository, file name is: message_api.postman_collection.json
+
 
 **************************************************
 ### Download And Run On Local Host:
