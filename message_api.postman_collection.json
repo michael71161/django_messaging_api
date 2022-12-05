@@ -90,10 +90,15 @@
 							]
 						},
 						"url": {
-							"raw": "{{URL_LOCAL}}/api/",
+							"raw": "http://127.0.0.1:8000/api/",
+							"protocol": "http",
 							"host": [
-								"{{URL_LOCAL}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								""
@@ -215,10 +220,15 @@
 							]
 						},
 						"url": {
-							"raw": "{{URL_LOCAL}}/api/register/",
+							"raw": "http://127.0.0.1:8000/api/register/",
+							"protocol": "http",
 							"host": [
-								"{{URL_LOCAL}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"register",
@@ -331,10 +341,15 @@
 							]
 						},
 						"url": {
-							"raw": "{{URL_LOCAL}}/api/signintoken/",
+							"raw": "http://127.0.0.1:8000/api/signintoken/",
+							"protocol": "http",
 							"host": [
-								"{{URL_LOCAL}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"signintoken",
@@ -479,10 +494,15 @@
 							]
 						},
 						"url": {
-							"raw": "{{URL_LOCAL}}/api/write/",
+							"raw": "http://127.0.0.1:8000/api/write/",
+							"protocol": "http",
 							"host": [
-								"{{URL_LOCAL}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"write",
@@ -574,10 +594,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL_LOCAL}}/api/getmsgstouser",
+							"raw": "http://127.0.0.1:8000/api/getmsgstouser",
+							"protocol": "http",
 							"host": [
-								"{{URL_LOCAL}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"getmsgstouser"
@@ -670,10 +695,15 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "{{URL_LOCAL}}/api/readmessage/12/",
+							"raw": "http://127.0.0.1:8000/api/readmessage/12/",
+							"protocol": "http",
 							"host": [
-								"{{URL_LOCAL}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"readmessage",
@@ -766,10 +796,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL_LOCAL}}/api/getunrduser",
+							"raw": "http://127.0.0.1:8000/api/getunrduser",
+							"protocol": "http",
 							"host": [
-								"{{URL_LOCAL}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"getunrduser"
@@ -862,10 +897,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{URL_LOCAL}}/api/delmsguser/2/",
+							"raw": "http://127.0.0.1:8000/api/delmsguser/2/",
+							"protocol": "http",
 							"host": [
-								"{{URL_LOCAL}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"delmsguser",
@@ -951,10 +991,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL_LOCAL}}/api/",
+							"raw": "http://127.0.0.1:8000/api/",
+							"protocol": "http",
 							"host": [
-								"{{URL_LOCAL}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								""
@@ -1045,10 +1090,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL_LOCAL}}/api/logout",
+							"raw": "http://127.0.0.1:8000/api/logout",
+							"protocol": "http",
 							"host": [
-								"{{URL_LOCAL}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"logout"
@@ -1108,10 +1158,13 @@
 		{
 			"name": "PROD_GET api/",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://michaelmsgbck.onrender.com/api",
+					"raw": "https://michaelmsgbck.onrender.com/api/",
 					"protocol": "https",
 					"host": [
 						"michaelmsgbck",
@@ -1119,7 +1172,8 @@
 						"com"
 					],
 					"path": [
-						"api"
+						"api",
+						""
 					]
 				},
 				"description": "\\*PROD\\*\n\nList of all registered user so you will know to who send your message\n\nEndFragment"
@@ -1946,6 +2000,127 @@
 					],
 					"cookie": [],
 					"body": "\"Message Deleted\""
+				}
+			]
+		},
+		{
+			"name": "PROD_GET url/api/logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMjM3MTU4LCJpYXQiOjE2NzAyMzYyNTgsImp0aSI6IjQyNWFmNWQzMmVhNjQzM2I4NDU1OWY3ZjEwNWY0NjY2IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtaWNoYWVsIiwiZW1haWwiOiJtaWNoQGVsLmNvbSIsImlzQWRtaW4iOnRydWV9.mIDKbX4to5BcZGd4RVNXP2KX8HQEUyUOtMew6sqx1cI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://michaelmsgbck.onrender.com/api/logout/",
+					"protocol": "https",
+					"host": [
+						"michaelmsgbck",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PROD_GET url/api/logout",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://michaelmsgbck.onrender.com/api/logout/",
+							"protocol": "https",
+							"host": [
+								"michaelmsgbck",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"logout",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 05 Dec 2022 10:33:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "774c1f22cfbddd7c-LHR"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cross-origin-opener-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "\"user logged out\""
 				}
 			]
 		}
