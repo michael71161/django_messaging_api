@@ -90,15 +90,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/",
-							"protocol": "http",
+							"raw": "{{URL_LOCAL}}/api/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{URL_LOCAL}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								""
@@ -220,15 +215,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register/",
-							"protocol": "http",
+							"raw": "{{URL_LOCAL}}/api/register/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{URL_LOCAL}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"register",
@@ -341,15 +331,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/signintoken/",
-							"protocol": "http",
+							"raw": "{{URL_LOCAL}}/api/signintoken/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{URL_LOCAL}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"signintoken",
@@ -494,15 +479,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/write/",
-							"protocol": "http",
+							"raw": "{{URL_LOCAL}}/api/write/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{URL_LOCAL}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"write",
@@ -594,15 +574,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/getmsgstouser",
-							"protocol": "http",
+							"raw": "{{URL_LOCAL}}/api/getmsgstouser",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{URL_LOCAL}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"getmsgstouser"
@@ -695,15 +670,10 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/readmessage/12/",
-							"protocol": "http",
+							"raw": "{{URL_LOCAL}}/api/readmessage/12/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{URL_LOCAL}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"readmessage",
@@ -796,15 +766,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/getunrduser",
-							"protocol": "http",
+							"raw": "{{URL_LOCAL}}/api/getunrduser",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{URL_LOCAL}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"getunrduser"
@@ -897,15 +862,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/delmsguser/2/",
-							"protocol": "http",
+							"raw": "{{URL_LOCAL}}/api/delmsguser/2/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{URL_LOCAL}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"delmsguser",
@@ -991,15 +951,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/",
-							"protocol": "http",
+							"raw": "{{URL_LOCAL}}/api/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{URL_LOCAL}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								""
@@ -1090,15 +1045,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/logout",
-							"protocol": "http",
+							"raw": "{{URL_LOCAL}}/api/logout",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{URL_LOCAL}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"logout"
@@ -1265,14 +1215,46 @@
 			]
 		},
 		{
-			"name": "PROD_GET api/signintoken/",
+			"name": "PROD_POST api/signintoken/",
 			"request": {
-				"method": "GET",
-				"header": []
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "michael",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://michaelmsgbck.onrender.com/api/getmsgstouser/",
+					"protocol": "https",
+					"host": [
+						"michaelmsgbck",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"getmsgstouser",
+						""
+					]
+				}
 			},
 			"response": [
 				{
-					"name": "New Request",
+					"name": "got token in signin",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
@@ -1500,8 +1482,32 @@
 		{
 			"name": "PROD_GET api/getunrduser",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMTkzNDE5LCJpYXQiOjE2NzAxOTI1MTksImp0aSI6ImUzOTNhYmUxZWY1NDQxZWE4ZmI3MjYxMDc4N2E0MmE1IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtaWNoYWVsIiwiZW1haWwiOiJtaWNoQGVsLmNvbSIsImlzQWRtaW4iOnRydWV9.FvsDkZ-1aJ4r-W9ltBEChEo_tVnURHFw984qDvlnY8s",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "https://michaelmsgbck.onrender.com/api/getunrduser/",
+					"protocol": "https",
+					"host": [
+						"michaelmsgbck",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"getunrduser",
+						""
+					]
+				}
 			},
 			"response": [
 				{
@@ -1700,6 +1706,246 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"_id\": 9,\n    \"receiver\": \"michael\",\n    \"msg_body\": \"this is request from postman\",\n    \"msg_subject\": \"checking postman\",\n    \"creation_date\": \"2022-12-03T19:39:47.825916Z\",\n    \"is_read\": true,\n    \"user\": 5\n}"
+				}
+			]
+		},
+		{
+			"name": "PROD_POST api/write/",
+			"request": {
+				"method": "POST",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "post new message",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "receiver",
+									"value": "Zazzi",
+									"type": "text"
+								},
+								{
+									"key": "msg_body",
+									"value": "chupa",
+									"type": "text"
+								},
+								{
+									"key": "msg_subject",
+									"value": "kabra",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://michaelmsgbck.onrender.com/api/write/",
+							"protocol": "https",
+							"host": [
+								"michaelmsgbck",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"write",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 22:50:12 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "77481980daea4084-LHR"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cross-origin-opener-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": 21,\n    \"receiver\": \"Zazzi\",\n    \"msg_body\": \"chupa\",\n    \"msg_subject\": \"kabra\",\n    \"creation_date\": \"2022-12-04T22:50:12.378030Z\",\n    \"is_read\": false,\n    \"user\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "PROD_DELETE api/delmsguser/id/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwMTk1MzI1LCJpYXQiOjE2NzAxOTQ0MjUsImp0aSI6ImZjZThiNzg4ZmM2MzQ3ZWQ5ZDY3OTIxYTRkMDI2OTEyIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJtaWNoYWVsIiwiZW1haWwiOiJtaWNoQGVsLmNvbSIsImlzQWRtaW4iOnRydWV9.59O2PiOW5vzJznlyu_Y0YXVlwkWM9LNJ5erHBaBjqBA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://michaelmsgbck.onrender.com/api/delmsguser/21/",
+					"protocol": "https",
+					"host": [
+						"michaelmsgbck",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"delmsguser",
+						"21",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PROD_DELETE api/delmsguser/id/",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://michaelmsgbck.onrender.com/api/delmsguser/21/",
+							"protocol": "https",
+							"host": [
+								"michaelmsgbck",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"delmsguser",
+								"21",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 22:56:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "77482261286f4084-LHR"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, OPTIONS"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cross-origin-opener-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "\"Message Deleted\""
 				}
 			]
 		}
