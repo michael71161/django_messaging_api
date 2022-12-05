@@ -6,7 +6,7 @@
 ****************************************************
 #### Complete Messageing API programm using the following stack: Python Django,Django REST framework, simpleJWT, SQLite3.
 **************************************************
-#### ***Live Server URL:https://michaelmsgbck.onrender.com*** 
+#### ***Live Server URL:https://michaelmsgbck.onrender.com***     Hosting: render.com
 
 
 ************************************************
