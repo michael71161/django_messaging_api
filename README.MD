@@ -33,4 +33,5 @@
 - virtualenv myenv
 - myenv\scripts\activate
 - pip install -r requirements.txt
-- python manage.py runserver
+- python manage.py runserver 
+- Superuser creds- username: teamLeader , password: 12345
